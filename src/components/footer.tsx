@@ -11,7 +11,7 @@ export default function Footer() {
         >
           Alex Martynov
         </a>
-        in CC Attribution License via
+        in CC Attribution License via{' '}
         <a href="https://www.svgrepo.com/" target="_blank" referrerPolicy="no-referrer">
           SVG Repo
         </a>
