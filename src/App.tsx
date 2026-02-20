@@ -1,35 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Dualsense from '@/components/Dualsense'
+import Loader from '@/components/icons/loader'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
+    <div className="flex items-start gap-x-24 rounded-lg border border-neutral-100 px-12 py-10 shadow-lg">
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h2 className="inline-flex items-center gap-x-2 text-2xl text-neutral-700">
+          <Loader />
+          Waiting for a controller to be connect
+        </h2>
+        <p className="text-neutral-500">Connect your joystick and press any button to start.</p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div id="gamepad-name"></div>
+      <div className="w-96">
+        <Dualsense />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
-
-export default App
