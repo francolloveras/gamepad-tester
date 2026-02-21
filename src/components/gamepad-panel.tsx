@@ -83,7 +83,7 @@ function AxisPanel({ axis }: { axis: number[] }) {
           </div>
         ))}
       </div>
-      <div className="relative size-25 rounded-full border border-neutral-300">
+      <div className="relative size-23 rounded-full border border-neutral-300">
         <div className="absolute top-1/2 h-[0.1px] w-full -translate-y-1/2 bg-neutral-300" />
         <div className="absolute left-1/2 h-full w-[0.1px] -translate-x-1/2 bg-neutral-300" />
         <div
