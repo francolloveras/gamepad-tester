@@ -49,46 +49,47 @@ export default function GamepadPanel({ gamepad }: { gamepad: GamepadState }) {
       <div className="grid grid-cols-2 gap-3 text-sm">
         <div className="flex flex-col gap-3">
           <p className="text-neutral-500 uppercase">L Stick</p>
-          {leftAxis.map((axis, index) => (
-            <div key={index} className="flex items-center gap-x-2">
-              <div className="relative h-full w-2 rounded bg-neutral-100">
-                <div
-                  className="absolute left-0 w-full rounded bg-black"
-                  style={{
-                    height: `${Math.abs(axis) * 50}%`,
-                    top: '50%',
-                    transform: `translateY(${axis >= 0 ? '-100%' : '0'})`
-                  }}
-                />
-              </div>
-              <div>
-                <p className="up text-neutral-500">Axis {index}</p>
-                <p className="text-neutral-700">{axis.toFixed(5)}</p>
-              </div>
-            </div>
-          ))}
+          <AxisPanel axis={leftAxis} />
         </div>
         <div className="flex flex-col gap-3">
           <p className="text-neutral-500 uppercase">R Stick</p>
-          {rightAxis.map((axis, index) => (
-            <div key={index} className="flex items-center gap-x-2">
-              <div className="relative h-full w-2 rounded bg-neutral-100">
-                <div
-                  className="absolute left-0 w-full rounded bg-black"
-                  style={{
-                    height: `${Math.abs(axis) * 50}%`,
-                    top: '50%',
-                    transform: `translateY(${axis >= 0 ? '-100%' : '0'})`
-                  }}
-                />
-              </div>
-              <div>
-                <p className="up text-neutral-500">Axis {index}</p>
-                <p className="text-neutral-700">{axis.toFixed(5)}</p>
-              </div>
-            </div>
-          ))}
+          <AxisPanel axis={rightAxis} />
         </div>
+      </div>
+    </div>
+  )
+}
+
+function AxisPanel({ axis }: { axis: number[] }) {
+  return (
+    <div className="flex gap-x-8">
+      <div className="flex flex-col gap-y-3">
+        {axis.map((axis, index) => (
+          <div key={index} className="flex items-center gap-x-2">
+            <div className="relative h-full w-2 rounded bg-neutral-100">
+              <div
+                className="absolute left-0 w-full rounded bg-black"
+                style={{
+                  height: `${Math.abs(axis) * 50}%`,
+                  top: '50%',
+                  transform: `translateY(${axis >= 0 ? '-100%' : '0'})`
+                }}
+              />
+            </div>
+            <div>
+              <p className="up text-neutral-500">Axis {index}</p>
+              <p className="w-16 text-neutral-700">{axis.toFixed(5)}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="relative size-25 rounded-full border border-neutral-300">
+        <div className="absolute top-1/2 h-[0.1px] w-full -translate-y-1/2 bg-neutral-300" />
+        <div className="absolute left-1/2 h-full w-[0.1px] -translate-x-1/2 bg-neutral-300" />
+        <div
+          className="absolute size-2 rounded-full bg-black"
+          style={{ left: `${50 + axis[0] * 50}%`, top: `${50 + axis[1] * 50}%` }}
+        />
       </div>
     </div>
   )
