@@ -53,8 +53,12 @@ export default function GamepadPanel({ gamepad }: { gamepad: GamepadState }) {
             <div key={index} className="flex items-center gap-x-2">
               <div className="relative h-full w-2 rounded bg-neutral-100">
                 <div
-                  style={{ height: `${Math.abs(axis) * 100}%` }}
-                  className="absolute bottom-0 h-full w-full rounded bg-black"
+                  className="absolute left-0 w-full rounded bg-black"
+                  style={{
+                    height: `${Math.abs(axis) * 50}%`,
+                    top: '50%',
+                    transform: `translateY(${axis >= 0 ? '-100%' : '0'})`
+                  }}
                 />
               </div>
               <div>
@@ -70,8 +74,12 @@ export default function GamepadPanel({ gamepad }: { gamepad: GamepadState }) {
             <div key={index} className="flex items-center gap-x-2">
               <div className="relative h-full w-2 rounded bg-neutral-100">
                 <div
-                  style={{ height: `${Math.abs(axis) * 100}%` }}
-                  className="absolute bottom-0 h-full w-full rounded bg-black"
+                  className="absolute left-0 w-full rounded bg-black"
+                  style={{
+                    height: `${Math.abs(axis) * 50}%`,
+                    top: '50%',
+                    transform: `translateY(${axis >= 0 ? '-100%' : '0'})`
+                  }}
                 />
               </div>
               <div>
