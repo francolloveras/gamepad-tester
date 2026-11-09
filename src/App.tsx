@@ -10,7 +10,7 @@ export default function App() {
     <div className="flex items-start justify-between gap-x-8 rounded-lg border border-neutral-100 px-12 py-10 shadow-lg">
       {gamepads.length > 0 ? <GamepadPanel gamepad={gamepads[0]} /> : <DisconnectedPanel />}
       <div className="w-96">
-        <Dualsense />
+        <Dualsense gamepad={gamepads[0]} />
       </div>
     </div>
   )
