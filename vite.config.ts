@@ -6,6 +6,7 @@ import Unfonts from 'unplugin-fonts/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/gamepad-tester/',
   plugins: [
     react(),
     tailwindcss(),
